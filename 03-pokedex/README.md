@@ -57,6 +57,20 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+# Ejecutar en desarrollo
+1.Clonar el repositorio
+2. Ejecutar 
+``` 
+npm install 
+```
+3. Tener Nest CLI instalado
+```
+npm i -g @nest/cli
+```
+4.Levantar la base de datos
+```
+docker-compose up -d
+```
 
 ## Resources
 
@@ -69,7 +83,6 @@ Check out a few resources that may come in handy when working with NestJS:
 - Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
 - To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
 - Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
