@@ -4,6 +4,7 @@ import { join } from 'path'; //node
 import { PokemonModule } from './pokemon/pokemon.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CommonModule } from './common/common.module';
+import { SeedModule } from './seed/seed.module';
 //Todo lo que vaya con palabra modulo va en los imports
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { CommonModule } from './common/common.module';
     PokemonModule,
     //Establecer la URL de la base de datos
     MongooseModule.forRoot('mongodb://localhost:27017/nest-pokemon'),
-    CommonModule
+    CommonModule,
+    SeedModule
   ],
 })
 export class AppModule {}

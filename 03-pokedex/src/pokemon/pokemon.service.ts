@@ -4,6 +4,7 @@ import { UpdatePokemonDto } from './dto/update-pokemon.dto';
 import { Pokemon } from './entities/pokemon.entity';
 import { isValidObjectId, Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
+import { PaginationDto } from '../common/dto/pagination.dto';
 
 @Injectable()
 export class PokemonService {
@@ -26,9 +27,16 @@ export class PokemonService {
       this.handleExceptions(error);
     }
   }
-
-  findAll() {
-    return `This action returns all pokemon`;
+//Paginacion de datos mostrados
+//Offset determina cuantos datos oviara 
+  findAll(paginationDto:PaginationDto) {
+    const {limit = 10, offset = 0} = paginationDto;
+      return this.pokemonModel.find().limit(limit).skip(offset).sort({
+        //No, ordenacion ascedente
+        no: 1
+        //Select para evitar mostrar los datos del version
+      }).select('-__v')
+    /*return `This action returns all pokemon`;*/
   }
   // term de termino de busqueda
   async findOne(term: string) {
