@@ -1,1 +1,13 @@
 Mi nombre es Miguel Angel
+
+instalador que permite trabajar con mongodb
+
+Comando para generar la carpeta common 
+
+nest g mo common 
+
+Comando para generar la carpeta de pipes 
+
+nest g pi common/pipes/parseMongoId
+
+

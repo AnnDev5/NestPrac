@@ -70,8 +70,17 @@ export class PokemonService {
     }
 
   async remove(id: string) {
-    const pokemon = await this.findOne(id)
-    await pokemon.deleteOne();
+    //const pokemon = await this.findOne(id)
+    //await pokemon.deleteOne();
+    //return { id };
+    //Esta linea solo borra el registro con el Id pero no lo verifiva si realmente existe
+    //const result = await this.pokemonModel.findByIdAndDelete(id);
+    const {deletedCount} = await this.pokemonModel.deleteOne({_id:id}) //Delete from * el delete many
+    if(deletedCount ===0){
+      throw new BadRequestException(`Pokemon whit id "${id}" not found `)
+    }
+    //En este caso no se retorna nada pero internamente devuelve un status 200 que implica que todo se realizo correctamente 
+    return;
   }
 
 //Manejo de excepciones no controladas
